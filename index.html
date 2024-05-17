@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" id="oranda" class="dark">
+    <head>
+        <title>rustlings</title>
+        
+            <meta property="og:url" content="https://rustlings.cool" />
+        
+        
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+            <meta name="description" content="Small exercises to get you used to reading and writing Rust code!" />
+            <meta property="og:description" content="Small exercises to get you used to reading and writing Rust code!" />
+        
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="rustlings" />
+        
+        
+        
+        <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+        <link rel="stylesheet" href="/oranda-v0.3.1.css" />
+        
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-body">
+                
+                    <div class="repo_banner">
+                        <a href="https://github.com/rust-lang/rustlings">
+                            <div class="github-icon" aria-hidden="true"></div>
+                            Check out our GitHub!
+                        </a>
+                    </div>
+                
+
+                <main>
+                    <header>
+                        
+                        <h1 class="title">rustlings</h1>
+                        
+    <nav class="nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+
+            
+
+            
+                <li><a href="/artifacts/">Install</a></li>
+            
+
+            
+
+            
+
+            
+                <li><a href="/changelog/">Changelog</a></li>
+            
+        </ul>
+    </nav>
+
+                    </header>
+
+                    
+
+<h3><a href="https://github.com/rust-lang/rustlings" rel="noopener noreferrer">ForkBy</a></h3>
+<div class="oranda-hide">
+<h1>rustlings 🦀❤️</h1>
+</div>
+<p>欢迎来到 <code>rustlings</code>。这个项目包含一些小练习，帮助你习惯阅读和编写Rust代码。这包括阅读和响应编译器消息！</p>
+<p><em>...在找旧版基于网络的Rustlings吗？试试<a href="https://github.com/rust-lang/rustlings/tree/rustlings-1" rel="noopener noreferrer">这里</a></em></p>
+<p>另外，对于第一次学习Rust的用户，还有其他一些资源：</p>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/index.html" rel="noopener noreferrer">The Book</a> - 学习Rust最全面的资源，但有时比较理论化。你将和Rustlings一起使用它！</li>
+<li><a href="https://doc.rust-lang.org/rust-by-example/index.html" rel="noopener noreferrer">Rust By Example</a> - 通过解决小练习来学习Rust！它几乎像<code>rustlings</code>，但在线。</li>
+</ul>
+<h2>入门</h2>
+<p><em>注意：如果你使用的是MacOS，请确保你已通过输入<code>xcode-select --install</code>安装了Xcode及其开发者工具。</em>
+<em>注意：如果你使用的是Linux，请确保你已安装gcc。Deb: <code>sudo apt install gcc</code>。Yum: <code>sudo yum -y install gcc</code>。</em></p>
+<p>你需要安装Rust。你可以访问 <a href="https://rustup.rs" rel="noopener noreferrer">https://rustup.rs</a> 获取它。这也会安装Cargo，Rust的包/项目管理器。</p>
+<h2>MacOS/Linux</h2>
+<p>运行：</p>
+<pre style="background-color:#263238;"><span style="color:#82aaff;">curl</span><span style="color:#89ddff;"> -</span><span style="color:#f78c6c;">L</span><span style="color:#82aaff;"> https://raw.githubusercontent.com/rust-lang/rustlings/main/install.sh </span><span style="color:#89ddff;">| </span><span style="color:#82aaff;">bash
+</span></pre>
+
+<p>或者如果你想安装到不同的路径：</p>
+<pre style="background-color:#263238;"><span style="color:#82aaff;">curl</span><span style="color:#89ddff;"> -</span><span style="color:#f78c6c;">L</span><span style="color:#82aaff;"> https://raw.githubusercontent.com/rust-lang/rustlings/main/install.sh </span><span style="color:#89ddff;">| </span><span style="color:#82aaff;">bash</span><span style="color:#89ddff;"> -</span><span style="color:#f78c6c;">s</span><span style="color:#82aaff;"> mypath/
+</span></pre>
+
+<p>这将安装Rustlings并让你可以使用<code>rustlings</code>命令。运行它以开始！</p>
+<h3>Nix</h3>
+<p>基本上：克隆最新标签的仓库，然后运行<code>nix develop</code>或<code>nix-shell</code>。</p>
+<pre style="background-color:#263238;"><span style="font-style:italic;color:#546e7a;"># 在 https://github.com/rust-lang/rustlings/releases/latest 找到最新版本（编辑时为5.6.1）
+</span><span style="color:#82aaff;">git clone</span><span style="color:#89ddff;"> -</span><span style="color:#f78c6c;">b</span><span style="color:#82aaff;"> 5.6.1</span><span style="color:#89ddff;"> --</span><span style="color:#f78c6c;">depth</span><span style="color:#82aaff;"> 1 https://github.com/rust-lang/rustlings
+</span><span style="color:#82aaff;">cd rustlings
+</span><span style="font-style:italic;color:#546e7a;"># 如果 nix 版本 &gt; 2.3
+</span><span style="color:#82aaff;">nix develop
+</span><span style="font-style:italic;color:#546e7a;"># 如果 nix 版本 &lt;= 2.3
+</span><span style="color:#82aaff;">nix-shell
+</span></pre>
+
+<h2>Windows</h2>
+<p>在PowerShell中（以管理员身份运行），将<code>ExecutionPolicy</code>设置为<code>RemoteSigned</code>：</p>
+<pre style="background-color:#263238;"><span style="color:#eeffff;">Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+</span></pre>
+
+<p>然后，你可以运行：</p>
+<pre style="background-color:#263238;"><span style="color:#eeffff;">Start-BitsTransfer -Source https://raw.githubusercontent.com/rust-lang/rustlings/main/install.ps1 -Destination $env:TMP/install_rustlings.ps1; Unblock-File $env:TMP/install_rustlings.ps1; Invoke-Expression $env:TMP/install_rustlings.ps1
+</span></pre>
+
+<p>以安装Rustlings。与在MacOS/Linux上相同，之后你将可以使用<code>rustlings</code>命令。请注意，这在PowerShell中效果最好，其他终端可能会给你带来错误。</p>
+<p>如果你收到权限被拒绝的消息，你可能需要在杀毒软件中排除克隆Rustlings的目录。</p>
+<h2>浏览器</h2>
+<p><a href="https://gitpod.io/#https://github.com/rust-lang/rustlings" rel="noopener noreferrer"><img src="https://gitpod.io/button/open-in-gitpod.svg" alt="在Gitpod中打开"></a></p>
+<p><a href="https://github.com/codespaces/new/?repo=rust-lang%2Frustlings&amp;ref=main" rel="noopener noreferrer"><img src="https://github.com/codespaces/badge.svg" alt="在Codespaces中打开Rustlings"></a></p>
+<h2>手动</h2>
+<p>基本上：克隆最新标签的仓库，运行<code>cargo install --path .</code>。</p>
+<pre style="background-color:#263238;"><span style="font-style:italic;color:#546e7a;"># 在 https://github.com/rust-lang/rustlings/releases/latest 找到最新版本（编辑时为5.6.1）
+</span><span style="color:#82aaff;">git clone</span><span style="color:#89ddff;"> -</span><span style="color:#f78c6c;">b</span><span style="color:#82aaff;"> 5.6.1</span><span style="color:#89ddff;"> --</span><span style="color:#f78c6c;">depth</span><span style="color:#82aaff;"> 1 https://github.com/rust-lang/rustlings
+</span><span style="color:#82aaff;">cd rustlings
+</span><span style="color:#82aaff;">cargo install</span><span style="color:#89ddff;"> --</span><span style="color:#f78c6c;">force</span><span style="color:#89ddff;"> --</span><span style="color:#f78c6c;">path</span><span style="color:#82aaff;"> .
+</span></pre>
+
+<p>如果有安装错误，确保你的工具链是最新的。要获取最新版本，运行：</p>
+<pre style="background-color:#263238;"><span style="color:#82aaff;">rustup update
+</span></pre>
+
+<p>然后，和上面一样，运行<code>rustlings</code>以开始。</p>
+<h2>做练习</h2>
+<p>这些练习按主题分类，可以在子目录<code>rustlings/exercises/&lt;topic&gt;</code>中找到。每个主题都有一个附加的README文件，其中包含一些帮助你入门该主题的资源。我们强烈建议你在开始之前看看它们。</p>
+<p>任务很简单。大多数练习包含一个阻止它们编译的错误，你需要修复它！一些练习也作为测试运行，但rustlings处理它们的方式是相同的。要按推荐顺序运行练习，执行：</p>
+<pre style="background-color:#263238;"><span style="color:#82aaff;">rustlings watch
+</span></pre>
+
+<p>这将尝试按预定顺序验证每个练习的完成情况（我们认为这是新手的最佳顺序）。每次你更改<code>exercises/</code>目录中的文件时，它也会自动重新运行。如果你只想运行一次，可以使用：</p>
+<pre style="background-color:#263238;"><span style="color:#82aaff;">rustlings verify
+</span></pre>
+
+<p>这将与watch相同，但它将在运行后退出。</p>
+<p>如果你想按自己的顺序进行，或只想验证单个练习，可以运行：</p>
+<pre style="background-color:#263238;"><span style="color:#82aaff;">rustlings run myExercise1
+</span></pre>
+
+<p>或者简单地使用以下命令运行课程中的下一个未解决的练习：</p>
+<pre style="background-color:#263238;"><span style="color:#82aaff;">rustlings run next
+</span></pre>
+
+<p>如果你卡住了，可以运行以下命令获取练习的提示：</p>
+<pre style="background-color:#263238;"><span style="color:#82aaff;">rustlings hint myExercise1
+</span></pre>
+
+<p>你也可以使用以下命令获取下一个未解决练习的提示：</p>
+<pre style="background-color:#263238;"><span style="color:#82aaff;">rustlings hint next
+</span></pre>
+
+<p>要检查你的进度，可以运行以下命令：</p>
+<pre style="background-color:#263238;"><span style="color:#82aaff;">rustlings list
+</span></pre>
+
+<h2>测试自己</h2>
+<p>每隔几节课会有一个测验，测试你对多个章节的知识。这些测验可以在<code>exercises/quizN.rs</code>中找到。</p>
+<h2>启用<code>rust-analyzer</code></h2>
+<p>运行命令<code>rustlings lsp</code>，这将在项目根目录生成一个<code>rust-project.json</code>，这允许<a href="https://rust-analyzer.github.io/" rel="noopener noreferrer">rust-analyzer</a>解析每个练习。</p>
+<h2>继续学习</h2>
+<p>完成Rustlings后，利用你的新知识！继续通过构建自己的项目、为Rustlings做贡献或寻找其他开源项目来贡献代码来练习你的Rust技能。</p>
+<h2>卸载Rustlings</h2>
+<p>如果你想从系统中删除Rustlings，有两个步骤。首先，你需要删除安装脚本为你创建的练习文件夹：</p>
+<pre style="background-color:#263238;"><span style="color:#82aaff;">rm</span><span style="color:#89ddff;"> -</span><span style="color:#f78c6c;">rf</span><span style="color:#82aaff;"> rustlings </span><span style="font-style:italic;color:#546e7a;"># 或你的自定义文件夹名，如果你选择并/或重命名了它
+</span></pre>
+
+<p>其次，运行<code>cargo uninstall</code>以移除<code>rustlings</code>二进制文件：</p>
+<pre style="background-color:#263238;"><span style="color:#82aaff;">cargo uninstall rustlings
+</span></pre>
+
+<p>现在你应该完成了！</p>
+<h2>贡献</h2>
+<p>请参阅 <a href="https://github.com/rust-lang/rustlings/blob/main/CONTRIBUTING.md" rel="noopener noreferrer">CONTRIBUTING.md</a>。</p>
+<h2>贡献者 ✨</h2>
+<p>感谢列在 <a href="https://github.com/rust-lang/rustlings/blob/main/AUTHORS.md" rel="noopener noreferrer">AUTHORS.md</a> 中的精彩人士 🎉</p>
+
+
+                </main>
+            </div>
+
+            <footer>
+                
+                    <a href="https://github.com/rust-lang/rustlings"><div class="github-icon" aria-hidden="true"></div></a>
+                
+                <span>
+                    rustlings
+                </span>
+            </footer>
+        </div>
+
+        
+            <script defer="true" data-domain="rustlings.cool" src="https://plausible.io/js/script.js"></script>
+        
+        
+
+        
+
+    <script src="/artifacts.js"></script>
+
+
+    </body>
+</html>
